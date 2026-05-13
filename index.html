@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mama's Cafe - Banepa | Famous for Khuwa Specialties</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #F7941D;
+            --orange-light: #FFB84D;
+            --orange-dark: #D97706;
+            --black: #1A1A1A;
+            --dark: #2D2D2D;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --cream: #FFFBF5;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 0.8rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        .logo-text span {
+            color: var(--orange);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--orange);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            color: var(--black);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: var(--black);
+            color: var(--white);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(247,148,29,0.08)" stroke-width="0.5"/></svg>');
+            background-size: 120px 120px;
+            opacity: 0.4;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-logo {
+            width: 180px;
+            /* base width */
+            max-width: 100%;
+            height: auto;
+            /* maintain aspect ratio */
+            margin-bottom: 1.5rem;
+            object-fit: contain;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            color: var(--orange);
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            color: var(--orange-light);
+            font-style: italic;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--orange);
+            margin: 0 auto 1.5rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-location {
+            font-size: 0.95rem;
+            opacity: 0.7;
+            margin-top: 1rem;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background: var(--orange);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            border: 2px solid var(--orange);
+        }
+
+        .hero-cta:hover {
+            background: transparent;
+            color: var(--orange);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.6rem;
+            color: var(--black);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--orange);
+            margin: 0.8rem auto;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.05rem;
+            font-style: italic;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--cream);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+
+        .about-text strong {
+            color: var(--orange-dark);
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--orange);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(247, 148, 29, 0.3);
+        }
+
+        /* Photo Gallery */
+        .gallery {
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 1;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 1.5rem 1rem 1rem;
+            color: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            background: var(--light-gray);
+        }
+
+        .menu-category {
+            margin-bottom: 3.5rem;
+        }
+
+        .menu-category-title {
+            font-size: 1.6rem;
+            color: var(--black);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 3px solid var(--orange);
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .menu-item {
+            background: var(--white);
+            padding: 1.8rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s;
+            border-left: 4px solid var(--orange);
+            position: relative;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.6rem;
+        }
+
+        .menu-item-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        .menu-item-price {
+            color: var(--orange-dark);
+            font-weight: 700;
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+
+        .menu-item-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .menu-item-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .menu-item-tag {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-item-tag.outline {
+            background: transparent;
+            color: var(--orange);
+            border: 1.5px solid var(--orange);
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background: var(--cream);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .review-card::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: var(--orange);
+            position: absolute;
+            top: -15px;
+            left: 15px;
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 1.2rem;
+            color: var(--dark);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .reviewer-info h4 {
+            color: var(--black);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .reviewer-info p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .stars {
+            color: var(--orange);
+            margin-top: 0.3rem;
+            font-size: 1rem;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .info-section .section-title {
+            color: var(--orange);
+        }
+
+        .info-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            background: rgba(247, 148, 29, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .info-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            color: var(--orange);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+footer {
+    background: #0D0D0D;
+    color: var(--white);
+    text-align: center;
+    padding: 2.5rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .logo-footer {
+    width: 120px;
+    max-width: 90%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+footer p {
+    opacity: 1;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+footer .tagline {
+    color: var(--orange);
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+    <base target="_blank">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="image.png" alt="Mama's Cafe Logo">
+                <span class="logo-text">Mama's <span>Cafe</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="image.png" alt="Mama's Cafe Logo" class="hero-logo">
+            <h1>Mama's Cafe</h1>
+            <p class="hero-subtitle">Banepa's Legendary Khuwa Destination</p>
+            <div class="hero-divider"></div>
+            <p class="hero-tagline">🥛 Authentic Khuwa Toast & Lassi Since 2050 BS</p>
+            <p class="hero-location">📍 Along Arniko Highway, Banepa | Perfect Stop for Travelers</p>
+            <a href="#menu" class="hero-cta">View Our Menu</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="section-header">
+            <h2 class="section-title">Our Story</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">A heritage of taste, tradition & warm hospitality</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Welcome to Mama's Cafe</h3>
+                <p>Established in <strong>2050 BS</strong>, Mama's Cafe has been a beloved landmark along the Arniko
+                    Highway in Banepa. For generations, we've been serving travelers, hikers, and locals with our
+                    signature <strong>Khuwa specialties</strong> — a rich, traditional milk product that forms the heart
+                    of our unique menu.</p>
+                <p>Recently shifted to a new and improved location, we offer a cozy, welcoming atmosphere where you can
+                    enjoy freshly made <strong>Khuwa Toast</strong>, rich <strong>Khuwa Lassi</strong>, energizing
+                    <strong>Khuwa Shake</strong>, and our special <strong>Khuwa Peda</strong> sweets.
+                </p>
+                <p>Whether you're stopping by after a long hike, waiting for friends, or simply craving authentic local
+                    flavors, Mama's Cafe is your perfect retreat. Easy parking, friendly staff, and unforgettable taste
+                    — that's our promise!</p>
+            </div>
+            <div class="about-image">
+                <img src="image (4).png" alt="Mama's Cafe Coffee Mug">
+                <div class="about-badge">Est. 2050 BS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="gallery" class="section gallery">
+        <div class="section-header">
+            <h2 class="section-title">Our Delicacies</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Freshly prepared with love and tradition</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="image (1).png" alt="Khuwa Toast with Tarkari">
+                <div class="gallery-overlay">
+                    <h4>Khuwa Toast with Tarkari</h4>
+                    <p>Our signature dish — soft, sweet & warm</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="image (2).png" alt="Khuwa Lassi & Peda">
+                <div class="gallery-overlay">
+                    <h4>Khuwa Lassi & Peda</h4>
+                    <p>Refreshing lassi with sweet peda</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="image (3).png" alt="Latte Art Coffee">
+                <div class="gallery-overlay">
+                    <h4>Specialty Coffee</h4>
+                    <p>Beautiful latte art & rich flavor</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="image (4).png" alt="Mama's Cafe Mug">
+                <div class="gallery-overlay">
+                    <h4>Mama's Special Coffee</h4>
+                    <p>Served in our signature mug</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="image(4).png" alt="Cappuccino">
+                <div class="gallery-overlay">
+                    <h4>Creamy Cappuccino</h4>
+                    <p>Perfectly frothed & full of flavor</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="image(5).png" alt="Artisan Coffee">
+                <div class="gallery-overlay">
+                    <h4>Artisan Coffee</h4>
+                    <p>Beautiful art in every cup</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section menu-section">
+        <div class="section-header">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Freshly made with love and the finest local ingredients</p>
+        </div>
+
+        <!-- Signature Khuwa Items -->
+        <div class="menu-category">
+            <h3 class="menu-category-title">⭐ Khuwa Specialties (Our Signature)</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Khuwa Toast</span>
+                        <span class="menu-item-price">Rs 1–500</span>
+                    </div>
+                    <p class="menu-item-desc">Our legendary signature dish! Soft, sweet, warm toast topped with rich,
+                        creamy khuwa (traditional milk product). A perfect energy booster after a long journey.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">🏆 Most Popular</span>
+                        <span class="menu-item-tag outline">Signature</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Khuwa Lassi</span>
+                        <span class="menu-item-price">Rs 1–500</span>
+                    </div>
+                    <p class="menu-item-desc">Refreshing and rich yogurt-based drink blended with our special khuwa.
+                        Something truly unique to try on — surprisingly delightful!</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">⭐ Must Try</span>
+                        <span class="menu-item-tag outline">Refreshing</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Khuwa Shake</span>
+                        <span class="menu-item-price">Rs 500–1,000</span>
+                    </div>
+                    <p class="menu-item-desc">Rich, refreshing, and perfectly blended khuwa shake. Simple but incredibly
+                        tasty — a cozy treat for any time of day.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">🥤 Rich</span>
+                        <span class="menu-item-tag outline">Creamy</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Khuwa Peda Sweets</span>
+                        <span class="menu-item-price">Rs 1–500</span>
+                    </div>
+                    <p class="menu-item-desc">Traditional peda sweets made with our special khuwa. Exceptional taste,
+                        neat presentation — the perfect sweet ending to your meal.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">🍬 Sweet</span>
+                        <span class="menu-item-tag outline">Traditional</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Khuwa Toast with Tarkari</span>
+                        <span class="menu-item-price">Rs 1–500</span>
+                    </div>
+                    <p class="menu-item-desc">The complete Mama's experience! Our famous khuwa toast served with
+                        seasonal vegetable curry (tarkari). Soft, sweet, warm, and absolutely worth trying.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">🍽️ Full Meal</span>
+                        <span class="menu-item-tag outline">Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breakfast & Brunch -->
+        <div class="menu-category">
+            <h3 class="menu-category-title">🌅 Breakfast & Brunch</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Nepali Simple Breakfast</span>
+                        <span class="menu-item-price">Rs 500–1,000</span>
+                    </div>
+                    <p class="menu-item-desc">Start your day right with our wholesome breakfast options. Freshly
+                        prepared eggs, toast with butter and jam, and our special khuwa sides.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">🌄 Morning</span>
+                        <span class="menu-item-tag outline">Hearty</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Protein Khuwa Toast</span>
+                        <span class="menu-item-price">Rs 1–500</span>
+                    </div>
+                    <p class="menu-item-desc">Rich in protein, freshly made, and absolutely energizing! Perfect for
+                        hikers and travelers needing a power boost after a long trek.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">💪 High Protein</span>
+                        <span class="menu-item-tag outline">Energy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coffee & Beverages -->
+        <div class="menu-category">
+            <h3 class="menu-category-title">☕ Coffee, Tea & Beverages</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Specialty Coffee</span>
+                        <span class="menu-item-price">Rs 1–500</span>
+                    </div>
+                    <p class="menu-item-desc">Surprisingly nice coffee with beautiful latte art, made with fresh local
+                        milk. A highway treat that rivals city cafes! Served in our signature Mama's Cafe mug.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">☕ Hot</span>
+                        <span class="menu-item-tag outline">Latte Art</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Cappuccino</span>
+                        <span class="menu-item-price">Rs 1–500</span>
+                    </div>
+                    <p class="menu-item-desc">Perfectly frothed cappuccino with rich espresso and creamy foam. Beautiful
+                        art in every cup — a visual and taste delight.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">☕ Classic</span>
+                        <span class="menu-item-tag outline">Creamy</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Nepali Style Masala Tea</span>
+                        <span class="menu-item-price">Rs 1–500</span>
+                    </div>
+                    <p class="menu-item-desc">Authentic masala tea brewed with aromatic spices. Perfect companion for a
+                        relaxing break on your journey.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">🫖 Traditional</span>
+                        <span class="menu-item-tag outline">Spiced</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Black Tea (Ilam)</span>
+                        <span class="menu-item-price">Rs 1–500</span>
+                    </div>
+                    <p class="menu-item-desc">Premium Ilam black tea — grown in the foothills of Nepal. Pure,
+                        refreshing, and full of flavor.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">🍃 Organic</span>
+                        <span class="menu-item-tag outline">Premium</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Fresh Lassi</span>
+                        <span class="menu-item-price">Rs 1–500</span>
+                    </div>
+                    <p class="menu-item-desc">Thick, creamy, and refreshing traditional yogurt drink. Made fresh with
+                        local curd — perfect for a hot day.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">🥛 Fresh</span>
+                        <span class="menu-item-tag outline">Cooling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Light Snacks -->
+        <div class="menu-category">
+            <h3 class="menu-category-title">🥪 Light Snacks</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Chapati/Toast with Butter & Jam</span>
+                        <span class="menu-item-price">Rs 1–500</span>
+                    </div>
+                    <p class="menu-item-desc">Homemade flatbread or toast served with your choice of butter, jam, or
+                        natural honey. Light and satisfying.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">🍯 Light</span>
+                        <span class="menu-item-tag outline">Simple</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-name">Seasonal Fresh Fruits</span>
+                        <span class="menu-item-price">Rs 1–500</span>
+                    </div>
+                    <p class="menu-item-desc">Selection of seasonal fruits (apple, banana, oranges, mango) blended with
+                        freshly made Nepali curd.</p>
+                    <div class="menu-item-tags">
+                        <span class="menu-item-tag">🍎 Healthy</span>
+                        <span class="menu-item-tag outline">Fresh</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="section reviews">
+        <div class="section-header">
+            <h2 class="section-title">What People Say</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Real reviews from our valued customers</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <p class="review-text">"This is the first time visit, Great taste of food, will surely visit this place
+                    for more items. Khuwa toast and tarkari.. Yumm! Definitely a good stop for everyone traveling
+                    ahead."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">KN</div>
+                    <div class="reviewer-info">
+                        <h4>Kapil Raj Niraula</h4>
+                        <p>First-time Visitor</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <p class="review-text">"Nice place for Breakfast. They serve yummy khuwa... Known for their special
+                    delicacy (khuwa) they have built a unique menu around it."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">PB</div>
+                    <div class="reviewer-info">
+                        <h4>Peshal Bhattarai</h4>
+                        <p>Local Guide • 60 Reviews</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <p class="review-text">"They are known for their khuwa special menu in Banepa. We had their khuwa toast
+                    which was something new and the khuwa lassi. Both tasted good."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">LA</div>
+                    <div class="reviewer-info">
+                        <h4>Lizzy Adhikary</h4>
+                        <p>Local Guide • 107 Reviews</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <p class="review-text">"Tried Mama's Cafe for the first time today and went for their signature Khuwa
+                    Toast and Tarkari which was soft, sweet, warm, and absolutely worth trying!"</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">MS</div>
+                    <div class="reviewer-info">
+                        <h4>Manisha Sapkota</h4>
+                        <p>Local Guide • 32 Reviews</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <p class="review-text">"After a 3-day hike and some much-needed me-time, I stopped at Mama's Cafe and
+                    had their rich protein khuwa toast — freshly made and absolutely energizing!"</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">US</div>
+                    <div class="reviewer-info">
+                        <h4>Umesh Shrestha</h4>
+                        <p>Hiker & Traveler</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <p class="review-text">"A good highway place to retreat yourself from traveling. The food is okay, their
+                    khuwa lassi is something to try on. Their coffee is surprisingly nice as well."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">JM</div>
+                    <div class="reviewer-info">
+                        <h4>Jammie Maharjan</h4>
+                        <p>Local Guide • 79 Reviews</p>
+                        <div class="stars">★★★★☆</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Info Section -->
+    <section id="contact" class="section info-section">
+        <div class="section-header">
+            <h2 class="section-title">Visit Us</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">We'd love to welcome you to Mama's Cafe!</p>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon">📍</div>
+                <h3>Location</h3>
+                <p>Along Arniko Highway<br>Banepa, Nepal<br>(Near Highway, Easy Access)</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🕒</div>
+                <h3>Hours</h3>
+                <p>Open Seven Days a Week<br>Early Morning till Evening<br>Perfect for Breakfast, Brunch & Lunch</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🚗</div>
+                <h3>Parking</h3>
+                <p>Easy to Park<br>Accessible Location<br>Right by the Highway</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🍽️</div>
+                <h3>Specialties</h3>
+                <p>Khuwa Toast<br>Khuwa Lassi & Shake<br>Khuwa Peda Sweets<br>Fresh Coffee & Tea</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+   <!-- Footer -->
+<footer>
+    <img src="image.png" alt="Mama's Cafe Logo" class="logo-footer">
+
+    <p>Mama's Cafe, Banepa. All rights reserved.</p>
+
+    <p class="tagline">
+        Famous for Khuwa Specialties | Local Taste, Local Cook, Local Food
+    </p>
+
+    <p style="margin-top: 0.8rem; font-size: 0.8rem; opacity: 0.5;">
+        Established 2050 BS
+    </p>
+</footer>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.menu-item, .review-card, .gallery-item, .info-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+
+</html>
